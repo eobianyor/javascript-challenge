@@ -38,10 +38,16 @@ button.on("click", function () {
     var inputDate = inputElement.property("value");
     console.log(inputDate);
 
-    var filteredEncounters = tableData.filter(Encounters => Encounters.datetime === inputDate);
-    console.log("tableData has been filtered by ${inputDate}");
-    console.log(filteredEncounters);
-    composeTable(filteredEncounters);
+    if (inputDate != "") {
+        var filteredEncounters = tableData.filter(Encounters => Encounters.datetime === inputDate);
+        console.log("tableData has been filtered by ${inputDate}");
+        console.log(filteredEncounters);
+        composeTable(filteredEncounters);
+    }
+    else {
+        d3.select('#text1').text('PLEASE CHOOSE A DATE')
+        console.log("Please choose a date");
+    }
 });
 
 composeTable(tableData);

@@ -35,8 +35,8 @@ button.on("click", function () {
     console.log(inputDate, inputCity, inputShape);
 
     var onceFilteredEncounters = tableData.filter(Encounters => Encounters.datetime === inputDate);
-    var twiceFilteredEncounters = onceFilteredEncounters.filter(Encounters => Encounters.city === inputCity);
-    var thriceFilteredEncounters = twiceFilteredEncounters.filter(Encounters => Encounters.shape === inputShape);
+    var twiceFilteredEncounters = onceFilteredEncounters.filter(Encounters => Encounters.city.toLowerCase() === inputCity.toLowerCase());
+    var thriceFilteredEncounters = twiceFilteredEncounters.filter(Encounters => Encounters.shape.toLowerCase() === inputShape.toLowerCase());
     console.log(`tableData has been filtered by ${inputDate}, ${inputCity} and ${inputShape} `);
     console.log(thriceFilteredEncounters);
     composeTable(thriceFilteredEncounters);
