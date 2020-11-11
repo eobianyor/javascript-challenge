@@ -9,10 +9,11 @@ var tableData = data;
 // 2nd function getting your inputvar = select and get value from input tag , if(inputvar): fvar1 tabledata.filter(date === input.date) call 1st func with fvar1
 // event listner d3.selecta().on(click,2nd funmc)
 
-
+// select  tbody d3
 var tbody = d3.select("tbody");
 // var inputDate = d3.select("#datetime");
 
+// Create a custom function to append a table to the html page
 function composeTable(inputData) {
     tbody.html("");
     inputData.forEach(Encounters => {
@@ -29,6 +30,7 @@ function composeTable(inputData) {
 
 // console.log(inputDate);
 
+// Create a custom function to run a filter on the data when a date is given and the 'Filter button' is pressed
 // Select the button
 var button = d3.select("#filter-btn");
 
@@ -45,7 +47,7 @@ button.on("click", function () {
         composeTable(filteredEncounters);
     }
     else {
-        d3.select('#text1').text('PLEASE CHOOSE A DATE')
+        d3.select('#text1').text('DATA OUT OF RANGE, PLEASE CHOOSE A DATE BETWEEN X AND Y')
         console.log("Please choose a date");
     }
 });
