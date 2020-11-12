@@ -41,18 +41,21 @@ button.on("click", function () {
     console.log(inputDate);
 
     if (inputDate != "") {
+        d3.select('#errortext').text("")
         var filteredEncounters = tableData.filter(Encounters => Encounters.datetime === inputDate);
         console.log("tableData has been filtered by ${inputDate}");
         console.log(filteredEncounters);
         // composeTable(filteredEncounters);
     }
     else {
+        tbody.html("");
         d3.select('#text1').text('DATA NOT FILTERED BECAUSE NO FILTER CRITERIA WAS INPUT. PLEASE CHOOSE A DATE BETWEEN 1/1/2010 AND 1/13/2010')
         console.log("Please choose a date")
     };
     if (filteredEncounters != "") { composeTable(filteredEncounters) }
     else {
-        d3.select('#text1').text('DATA NOT FILTERED BECAUSE THE FILTER CRITERIA IS OUT OF RANGE, PLEASE CHOOSE A DATE BETWEEN 1/1/2010 AND 1/13/2010')
+        tbody.html("");
+        d3.select('#errortext').text('DATA NOT FILTERED BECAUSE THE FILTER CRITERIA IS OUT OF RANGE, PLEASE CHOOSE A DATE BETWEEN 1/1/2010 AND 1/13/2010')
         console.log("Please choose a date")
     };
 });
