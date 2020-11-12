@@ -31,33 +31,38 @@ button.on("click", function () {
     // Select the input element and get the raw HTML node
     var inputElement1 = d3.select("#datetime");
     var inputElement2 = d3.select("#city");
-    var inputElement3 = d3.select("#shape");
+    var inputElement3 = d3.select("#state");
+    var inputElement4 = d3.select("#country");
+    var inputElement5 = d3.select("#shape");
 
     // Get the value property of the input element
     var inputDate = inputElement1.property("value");
     var inputCity = inputElement2.property("value");
-    var inputShape = inputElement3.property("value");
+    var inputState = inputElement3.property("value");
+    var inputCountry = inputElement4.property("value");
+    var inputShape = inputElement5.property("value");
 
     console.log(inputDate, inputCity, inputShape);
 
-    // Run 3 filters to get the data filtered by date time, city & shape
-    if (inputDate != "") {
-        var onceFilteredEncounters = tableData.filter(Encounters => Encounters.datetime === inputDate);
-    }
-    else if (inputCity != "") {
-        var twiceFilteredEncounters = onceFilteredEncounters.filter(Encounters => Encounters.city.toLowerCase() === inputCity.toLowerCase());
-    }
-    else if (inputShape != "") {
-        var thriceFilteredEncounters = twiceFilteredEncounters.filter(Encounters => Encounters.shape.toLowerCase() === inputShape.toLowerCase());
-        console.log(`tableData has been filtered by ${inputDate}, ${inputCity} and ${inputShape} `);
-        console.log(thriceFilteredEncounters);
-        composeTable(thriceFilteredEncounters);
+    // // Run 3 filters to get the data filtered by date time, city & shape
+    if (inputDate != "") { var onceFilteredEncounters = tableData.filter(Encounters => Encounters.datetime === inputDate) }
+    else { onceFilteredEncounters = tableData };
+    if (inputCity != "") { var twiceFilteredEncounters = onceFilteredEncounters.filter(Encounters => Encounters.city.toLowerCase() === inputCity.toLowerCase()) }
+    else { twiceFilteredEncounters = onceFilteredEncounters };
+    if (inputState != "") { var thriceFilteredEncounters = twiceFilteredEncounters.filter(Encounters => Encounters.state.toLowerCase() === inputState.toLowerCase()) }
+    else { thriceFilteredEncounters = twiceFilteredEncounters };
+    if (inputCountry != "") { var fourthFilteredEncounters = thriceFilteredEncounters.filter(Encounters => Encounters.country.toLowerCase() === inputCountry.toLowerCase()) }
+    else { fourthFilteredEncounters = thriceFilteredEncounters };
+    if (inputShape != "") { var fifthFilteredEncounters = fourthFilteredEncounters.filter(Encounters => Encounters.shape.toLowerCase() === inputShape.toLowerCase()) }
+    else { fifthFilteredEncounters = fourthFilteredEncounters };
+    console.log(`tableData has been filtered by ${inputDate}, ${inputCity}, ${inputState}, ${inputCountry}  and ${inputShape} `);
+    console.log(fifthFilteredEncounters);
+    if (fifthFilteredEncounters != "") { composeTable(fifthFilteredEncounters) }
+    else {
+        d3.select('#text1').text('DATA NOT FILTERED, PLEASE SELECT A FILTER CRITERIA ON THE LEFT')
+        console.log("Please choose a date")
     }
 
-    else {
-        d3.select('#text1').text('DATA OUT OF RANGE, PLEASE CHOOSE A DATE BETWEEN X AND Y')
-        console.log("Please choose a date");
-    }
 });
 
 composeTable(tableData);

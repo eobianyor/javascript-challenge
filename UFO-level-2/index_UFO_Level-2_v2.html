@@ -49,35 +49,45 @@
                       </li>
                       <li class="filter list-group-item4">
                         <label for="shape">Choose a country</label>
-                        <div class="form-group">
-                          <select multiple class="form-control" id="country">
-                            <option>us</option>
-                            <option>ca</option>
-                          </select>
+                        <div class="dropdown">
+                          <button class="btn btn-secondary dropdown-toggle" type="button" id="CountryDropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Select a Country
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">us</a>
+                            <a class="dropdown-item" href="#">ca</a>
+                          </div>
                         </div>
                       </li>
                       <li class="filter list-group-item5">
                         <label for="shape">Choose a UFO Shape</label>
-                        <div class="form-group">
-                          <select multiple class="form-control" id="shape">
-                            <option>changing</option>
-                            <option>chevron</option>
-                            <option>cigar</option>
-                            <option>circle</option>
-                            <option>cross</option>
-                            <option>cylinder</option>
-                            <option>disk</option>
-                            <option>fireball</option>
-                            <option>flash</option>
-                            <option>formation</option>
-                            <option>light</option>
-                            <option>other</option>
-                            <option>oval</option>
-                            <option>sphere</option>
-                            <option>teardrop</option>
-                            <option>triangle</option>
-                            <option>unknown</option>
-                          </select>
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">changing</a>
+                            <a class="dropdown-item" href="#">chevron</a>
+                            <a class="dropdown-item" href="#">cigar</a>
+                            <a class="dropdown-item" href="#">circle</a>
+                            <a class="dropdown-item" href="#">cross</a>
+                            <a class="dropdown-item" href="#">cylinder</a>
+                            <a class="dropdown-item" href="#">disk</a>
+                            <a class="dropdown-item" href="#">fireball</a>
+                            <a class="dropdown-item" href="#">flash</a>
+                            <a class="dropdown-item" href="#">formation</a>
+                            <a class="dropdown-item" href="#">light</a>
+                            <a class="dropdown-item" href="#">other</a>
+                            <a class="dropdown-item" href="#">oval</a>
+                            <a class="dropdown-item" href="#">sphere</a>
+                            <a class="dropdown-item" href="#">teardrop</a>
+                            <a class="dropdown-item" href="#">triangle</a>
+                            <a class="dropdown-item" href="#">unknown</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                          </div>
                         </div>
                       </li>
                     </ul>
